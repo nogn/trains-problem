@@ -1,0 +1,17 @@
+E:\Development\trains-problem\TrainsProblemTests\bin\Debug\netcoreapp2.1\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+E:\Development\trains-problem\TrainsProblemTests\bin\Debug\netcoreapp2.1\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+E:\Development\trains-problem\TrainsProblemTests\bin\Debug\netcoreapp2.1\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+E:\Development\trains-problem\TrainsProblemTests\bin\Debug\netcoreapp2.1\TrainsProblemTests.deps.json
+E:\Development\trains-problem\TrainsProblemTests\bin\Debug\netcoreapp2.1\TrainsProblemTests.runtimeconfig.json
+E:\Development\trains-problem\TrainsProblemTests\bin\Debug\netcoreapp2.1\TrainsProblemTests.runtimeconfig.dev.json
+E:\Development\trains-problem\TrainsProblemTests\bin\Debug\netcoreapp2.1\TrainsProblemTests.dll
+E:\Development\trains-problem\TrainsProblemTests\bin\Debug\netcoreapp2.1\TrainsProblemTests.pdb
+E:\Development\trains-problem\TrainsProblemTests\bin\Debug\netcoreapp2.1\TrainsProblem.dll
+E:\Development\trains-problem\TrainsProblemTests\bin\Debug\netcoreapp2.1\TrainsProblem.pdb
+E:\Development\trains-problem\TrainsProblemTests\obj\Debug\netcoreapp2.1\TrainsProblemTests.csprojAssemblyReference.cache
+E:\Development\trains-problem\TrainsProblemTests\obj\Debug\netcoreapp2.1\TrainsProblemTests.csproj.CoreCompileInputs.cache
+E:\Development\trains-problem\TrainsProblemTests\obj\Debug\netcoreapp2.1\TrainsProblemTests.AssemblyInfoInputs.cache
+E:\Development\trains-problem\TrainsProblemTests\obj\Debug\netcoreapp2.1\TrainsProblemTests.AssemblyInfo.cs
+E:\Development\trains-problem\TrainsProblemTests\obj\Debug\netcoreapp2.1\TrainsProblemTests.csproj.CopyComplete
+E:\Development\trains-problem\TrainsProblemTests\obj\Debug\netcoreapp2.1\TrainsProblemTests.dll
+E:\Development\trains-problem\TrainsProblemTests\obj\Debug\netcoreapp2.1\TrainsProblemTests.pdb

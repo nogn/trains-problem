@@ -1,6 +1,6 @@
 ﻿namespace TrainsProblem.TownRoutes.Messages
 {
-    static class InputErrorMessages
+    public static class InputErrorMessages
     {
         public const string InvalidInputLength = "The input should be eather a valid route or the finishing command 'OK'.";
         public const string InvalidSourceInput = "The first digit of the input should be a letter.";

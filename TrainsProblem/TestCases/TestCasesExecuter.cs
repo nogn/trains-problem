@@ -1,14 +1,17 @@
 ﻿using System;
-using TrainsProblem.Graphs.Models;
+using TrainsProblem.DataStructures.Builders;
+using TrainsProblem.DataStructures.Graph;
+using TrainsProblem.RouteCalculators;
 
 namespace TrainsProblem.TestCases
 {
     class TestCasesExecuter
     {
-        public void RunAll(Graph<char> graph)
+        public void RunAll(Graph<char> graph = null)
         {
-            Console.WriteLine("Executing Questions 1 to 10:\n");
+            graph = graph ?? BuildDefaultTestInputGraph();
 
+            Console.WriteLine("Executing test cases 1 to 10:\n");
             try
             {
                 RunTestCases1To5(graph);
@@ -30,6 +33,8 @@ namespace TrainsProblem.TestCases
 
         private void RunTestCases1To5(Graph<char> graph)
         {
+            var calculator = new RouteDistanceCalculator<char>(graph);
+
             var routes = new char[][]
             {
                 new char[] { 'A', 'B', 'C' },
@@ -41,7 +46,7 @@ namespace TrainsProblem.TestCases
 
             for (int i = 0; i < routes.Length; i++)
             {
-                var distance = RouteDistanceCalculator.Execute(graph, routes[i]);
+                var distance = calculator.Execute(routes[i]);
                 var result = distance != -1 ? distance.ToString() : "NO SUCH ROUTE";
 
                 OutputResult(i + 1, result);
@@ -81,6 +86,23 @@ namespace TrainsProblem.TestCases
         {
             var result = new PossibleRoutesMaxDistanceCalculator<char>(graph, maxDistance: 30).Execute('C', 'C');
             OutputResult(10, result);
+        }
+
+        private Graph<char> BuildDefaultTestInputGraph()
+        {
+            var graphBuilder = new DirectedGraphBuilder<char>();
+
+            graphBuilder.AddEdge('A', 'B', 5);
+            graphBuilder.AddEdge('B', 'C', 4);
+            graphBuilder.AddEdge('C', 'D', 8);
+            graphBuilder.AddEdge('D', 'C', 8);
+            graphBuilder.AddEdge('D', 'E', 6);
+            graphBuilder.AddEdge('A', 'D', 5);
+            graphBuilder.AddEdge('C', 'E', 2);
+            graphBuilder.AddEdge('E', 'B', 3);
+            graphBuilder.AddEdge('A', 'E', 7);
+
+            return graphBuilder.GetGraph();
         }
     }
 }

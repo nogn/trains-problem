@@ -1,4 +1,5 @@
-﻿using TrainsProblem.TestCases;
+﻿
+using TrainsProblem.TestCases;
 
 namespace TrainsProblem
 {
