@@ -7,7 +7,7 @@ namespace TrainsProblemTests.DataStructures
     public class DirectedGraphBuilderTests
     {
         [TestMethod]
-        public void AddEdge_NewSouceAndDestination_VerticesCreatedAndDirectedEdgeAdded()
+        public void AddEdge_NewSourceAndDestination_VerticesCreatedAndDirectedEdgeAdded()
         {
             var graphBuilder = new DirectedGraphBuilder<char>();
             var graph = graphBuilder.GetGraph();
@@ -26,7 +26,7 @@ namespace TrainsProblemTests.DataStructures
         }
 
         [TestMethod]
-        public void AddEdge_ExistingSouceAndDestination_VerticesNotCreatedAndDirectedEdgeAdded()
+        public void AddEdge_ExistingSourceAndDestination_VerticesNotCreatedAndDirectedEdgeAdded()
         {
             var graphBuilder = new DirectedGraphBuilder<char>();
             var graph = graphBuilder.GetGraph();

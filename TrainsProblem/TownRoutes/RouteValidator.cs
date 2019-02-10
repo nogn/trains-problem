@@ -9,9 +9,9 @@ namespace TrainsProblem.TownRoutes
         {
             ValidateSourceValue(routeModel.Source);
             ValidateDestinationValue(routeModel.Destination);
-            ValidateSourceDestinationDiference(routeModel.Source, routeModel.Destination);
-            ValidateDistance(routeModel.Distance);
-            ValidateRouteExistance(routeModel, graph);
+            ValidateSourceAndDestinationDifference(routeModel.Source, routeModel.Destination);
+            ValidateDistanceValue(routeModel.Distance);
+            ValidateRouteExistence(routeModel, graph);
         }
 
         private void ValidateSourceValue(char source)
@@ -20,9 +20,9 @@ namespace TrainsProblem.TownRoutes
                 throw new ArgumentException(InputErrorMessages.InvalidSourceInput);
         }
 
-        private bool IsTownNameValid(char destination)
+        private bool IsTownNameValid(char name)
         {
-            return destination >= 'A' && destination <= 'Z';
+            return name >= 'A' && name <= 'Z';
         }
 
         private void ValidateDestinationValue(char destination)
@@ -31,13 +31,13 @@ namespace TrainsProblem.TownRoutes
                 throw new ArgumentException(InputErrorMessages.InvalidDestinationInput);
         }
 
-        private static void ValidateSourceDestinationDiference(char source, char destination)
+        private static void ValidateSourceAndDestinationDifference(char source, char destination)
         {
             if (source == destination)
                 throw new ArgumentException(InputErrorMessages.EqualSourceAndDestination);
         }
         
-        private int ValidateDistance(int distance)
+        private int ValidateDistanceValue(int distance)
         {
             if (distance <= 0)
                 throw new ArgumentException(InputErrorMessages.InvalidDistanceInputRange);
@@ -45,7 +45,7 @@ namespace TrainsProblem.TownRoutes
             return distance;
         }
 
-        private static void ValidateRouteExistance(RouteModel routeModel, Graph<char> graph)
+        private static void ValidateRouteExistence(RouteModel routeModel, Graph<char> graph)
         {
             var town = graph.GetVertex(routeModel.Source);
 

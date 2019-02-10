@@ -1,7 +1,7 @@
 ﻿using System;
 using TrainsProblem.DataStructures;
 
-namespace TrainsProblem.RouteCalculators
+namespace TrainsProblem.RoutesCalculators
 {
     public class RouteDistanceCalculator<T>
     {
@@ -12,20 +12,20 @@ namespace TrainsProblem.RouteCalculators
             this.graph = graph;
         }
 
-        public int Execute(T[] desiredRoute)
+        public int Execute(T[] routes)
         {
-            ValidateInput(desiredRoute);
+            ValidateInput(routes);
 
             var distance = 0;
 
-            for (int i = 0; i < desiredRoute.Length - 1; i++)
+            for (int i = 0; i < routes.Length - 1; i++)
             {
-                var source = graph.GetVertex(desiredRoute[i]);
+                var source = graph.GetVertex(routes[i]);
 
                 if (source == null)
                     return -1;
 
-                var destination = source.GetEdge(desiredRoute[i + 1]);
+                var destination = source.GetEdge(routes[i + 1]);
 
                 if (destination == null)
                     return -1;
@@ -36,9 +36,9 @@ namespace TrainsProblem.RouteCalculators
             return distance;
         }
 
-        private void ValidateInput(T[] route)
+        private void ValidateInput(T[] routes)
         {
-            if (route == null)
+            if (routes == null)
                 throw new ArgumentException();
         }
     }

@@ -1,17 +1,17 @@
 ﻿using System;
 using TrainsProblem.DataStructures;
 
-namespace TrainsProblem.RouteCalculators
+namespace TrainsProblem.RoutesCalculators
 {
-    public class RoutesExactStopsCalculator<T>
+    public class MaxDistanceRoutesCalculator<T>
     {
         private readonly Graph<T> graph;
-        private readonly int maxStops;
+        private readonly int maxDistance;
 
-        public RoutesExactStopsCalculator(Graph<T> graph, int maxStops)
+        public MaxDistanceRoutesCalculator(Graph<T> graph, int maxDistance)
         {
             this.graph = graph;
-            this.maxStops = maxStops;
+            this.maxDistance = maxDistance;
         }
 
         public int Execute(T srcValue, T destValue)
@@ -25,7 +25,7 @@ namespace TrainsProblem.RouteCalculators
 
             if (srcValue.Equals(destValue))
                 foreach (var edge in source.Edges)
-                    routesCount = CountRoutes(edge.Destination, destValue, routesCount, 1);
+                    routesCount = CountRoutes(edge.Destination, destValue, routesCount, edge.Weight);
             else
                 routesCount = CountRoutes(source, destValue, routesCount, 0);
 
@@ -38,13 +38,14 @@ namespace TrainsProblem.RouteCalculators
                 throw new ArgumentException();
         }
 
-        private int CountRoutes(Vertex<T> source, T destValue, int routesCount, int stopsCount)
+        private int CountRoutes(Vertex<T> source, T destValue, int routesCount, int distanceCount)
         {
-            if (source.Value.Equals(destValue) && stopsCount == maxStops)
+            if (source.Value.Equals(destValue))
                 routesCount++;
-            else if (stopsCount < maxStops)
-                foreach (var edge in source.Edges)
-                    routesCount = CountRoutes(edge.Destination, destValue, routesCount, stopsCount + 1);
+
+            foreach (var edge in source.Edges)
+                if (distanceCount + edge.Weight < maxDistance)
+                    routesCount = CountRoutes(edge.Destination, destValue, routesCount, distanceCount + edge.Weight);
 
             return routesCount;
         }

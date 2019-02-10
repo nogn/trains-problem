@@ -1,7 +1,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using TrainsProblem.DataStructures;
-using TrainsProblem.RouteCalculators;
+using TrainsProblem.RoutesCalculators;
 
 namespace TrainsProblemTests.RouteCalculators
 {
@@ -36,7 +36,7 @@ namespace TrainsProblemTests.RouteCalculators
         }
 
         [TestMethod]
-        public void Execute_SourceNotExists_IncorrectResult()
+        public void Execute_SourceNotExists_DefaultResult()
         {
             var graph = new Graph<char>();
             var calculator = new RouteDistanceCalculator<char>(graph);
@@ -50,7 +50,7 @@ namespace TrainsProblemTests.RouteCalculators
         }
 
         [TestMethod]
-        public void Execute_EdgeNotExists_IncorrectResult()
+        public void Execute_EdgeNotExists_DefaultResult()
         {
             var graphBuilder = new DirectedGraphBuilder<char>();
             graphBuilder.AddEdge('A','C', 5);
@@ -66,7 +66,7 @@ namespace TrainsProblemTests.RouteCalculators
         }
 
         [TestMethod]
-        public void Execute_EmptyRoute_0()
+        public void Execute_EmptyRoute_CorrectResult()
         {
             var graph = new Graph<char>();
             var calculator = new RouteDistanceCalculator<char>(graph);

@@ -1,14 +1,14 @@
 ﻿using System;
 using TrainsProblem.DataStructures;
 
-namespace TrainsProblem.RouteCalculators
+namespace TrainsProblem.RoutesCalculators
 {
-    public class RoutesMaxStopsCalculator<T>
+    public class MaxStopsRoutesCalculator<T>
     {
         private readonly Graph<T> graph;
         private readonly int maxStops;
 
-        public RoutesMaxStopsCalculator(Graph<T> graph, int maxStops)
+        public MaxStopsRoutesCalculator(Graph<T> graph, int maxStops)
         {
             this.graph = graph;
             this.maxStops = maxStops;

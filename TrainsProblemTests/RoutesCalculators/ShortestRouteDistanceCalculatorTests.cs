@@ -1,7 +1,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using TrainsProblem.DataStructures;
-using TrainsProblem.RouteCalculators;
+using TrainsProblem.RoutesCalculators;
 
 namespace TrainsProblemTests.RouteCalculators
 {
@@ -51,7 +51,7 @@ namespace TrainsProblemTests.RouteCalculators
         }
 
         [TestMethod]
-        public void Execute_SourceNotExists_IncorrectResult()
+        public void Execute_SourceNotExists_DefaultResult()
         {
             var graph = new Graph<char>();
             var calculator = new ShortestRouteDistanceCalculator<char>(graph);

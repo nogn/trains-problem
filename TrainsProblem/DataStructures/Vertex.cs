@@ -19,27 +19,17 @@ namespace TrainsProblem.DataStructures
 
         public bool HasEdge(T value)
         {
-            return Edges.Any(e => e.Destination.Value.Equals(value));
+            return Edges.Any(edge => edge.Destination.Value.Equals(value));
         }
 
         public Edge<T> GetEdge(T value)
         {
-            return Edges.Find(e => e.Destination.Value.Equals(value));
+            return Edges.Find(edge => edge.Destination.Value.Equals(value));
         }
 
         public void AddEdge(Edge<T> edge)
         {
             Edges.Add(edge);
-        }
-
-        public void AddEdges(IEnumerable<Edge<T>> edges)
-        {
-            Edges.AddRange(edges);
-        }
-
-        public void RemoveEdge(Edge<T> edge)
-        {
-            Edges.Remove(edge);
         }
 
         public override string ToString()

@@ -1,23 +1,23 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using TrainsProblem.DataStructures;
-using TrainsProblem.RouteCalculators;
+using TrainsProblem.RoutesCalculators;
 
 namespace TrainsProblemTests.RouteCalculators
 {
     [TestClass]
-    public class PossibleRoutesWithMaxStopsCalculatorTests
+    public class MaxDistanceRoutesCalculatorTests
     {
         [TestMethod]
         public void Execute_DifferentSourceAndDestination_CorrectResult()
         {
             var graph = TestUtils.BuildDefaultTestGraph();
-            var maxStops = 3;
-            var calculator = new RoutesMaxStopsCalculator<char>(graph, maxStops);
+            var maxDistance = 30;
+            var calculator = new MaxDistanceRoutesCalculator<char>(graph, maxDistance);
 
             var source = 'A';
             var destination = 'C';
-            var expectedResult = 3;
+            var expectedResult = 11;
 
             var result = calculator.Execute(source, destination);
 
@@ -28,12 +28,12 @@ namespace TrainsProblemTests.RouteCalculators
         public void Execute_SameSourceAndDestination_CorrectResult()
         {
             var graph = TestUtils.BuildDefaultTestGraph();
-            var maxStops = 3;
-            var calculator = new RoutesMaxStopsCalculator<char>(graph, maxStops);
+            var maxDistance = 30;
+            var calculator = new MaxDistanceRoutesCalculator<char>(graph, maxDistance);
 
             var source = 'C';
             var destination = 'C';
-            var expectedResult = 2;
+            var expectedResult = 7;
 
             var result = calculator.Execute(source, destination);
 
@@ -47,18 +47,18 @@ namespace TrainsProblemTests.RouteCalculators
         public void Execute_InvalidArguments_ThrowsException(char source, char destination)
         {
             var graph = new Graph<char>();
-            var maxStops = 3;
-            var calculator = new RoutesMaxStopsCalculator<char>(graph, maxStops);
+            var maxDistance = 30;
+            var calculator = new MaxDistanceRoutesCalculator<char>(graph, maxDistance);
 
             var result = calculator.Execute(source, destination);
         }
 
         [TestMethod]
-        public void Execute_SourceNotExists_IncorrectResult()
+        public void Execute_SourceNotExists_DefaultResult()
         {
             var graph = new Graph<char>();
-            var maxStops = 3;
-            var calculator = new RoutesMaxStopsCalculator<char>(graph, maxStops);
+            var maxDistance = 30;
+            var calculator = new MaxDistanceRoutesCalculator<char>(graph, maxDistance);
 
             var source = 'C';
             var destination = 'C';

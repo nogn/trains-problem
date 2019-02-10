@@ -5,12 +5,12 @@ namespace TrainsProblem.TownRoutes
 {
     public class RoutesConsoleReader : IRoutesReader
     {
-        private readonly IRouteInputParser routeReader;
+        private readonly IRouteInputParser routeInputParser;
         private readonly IRouteValidator routeValidator;
 
         public RoutesConsoleReader()
         {
-            routeReader = new RouteInputParser();
+            routeInputParser = new RouteInputParser();
             routeValidator = new RouteValidator();
         }
 
@@ -54,7 +54,7 @@ namespace TrainsProblem.TownRoutes
 
         private RouteModel ParseAndValidateRouteInput(DirectedGraphBuilder<char> graphBuilder, string routeInput)
         {
-            var routeModel = routeReader.ParseInputRouteToModel(routeInput);
+            var routeModel = routeInputParser.ParseInputRouteToModel(routeInput);
             routeValidator.ValidateRoute(routeModel, graphBuilder.GetGraph());
 
             return routeModel;

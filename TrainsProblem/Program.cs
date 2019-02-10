@@ -7,8 +7,7 @@ namespace TrainsProblem
     {
         static void Main(string[] args)
         {
-            var application = TrainsProblemApplication.GetInstance();
-            application.Start();    
+            TrainsProblemApplication.GetInstance().Start();    
         }
     }
 }

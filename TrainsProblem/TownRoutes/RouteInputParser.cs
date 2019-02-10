@@ -7,7 +7,6 @@ namespace TrainsProblem.TownRoutes
         public RouteModel ParseInputRouteToModel(string routeInput)
         {
             ValidateInputLength(routeInput);
-
             routeInput = routeInput.ToUpper();
 
             return new RouteModel
@@ -20,7 +19,7 @@ namespace TrainsProblem.TownRoutes
 
         private void ValidateInputLength(string routeInput)
         {
-            if (routeInput.Length < 3)
+            if (string.IsNullOrWhiteSpace(routeInput) || routeInput.Length < 3)
                 throw new ArgumentException(InputErrorMessages.InvalidInputLength);
         }
 

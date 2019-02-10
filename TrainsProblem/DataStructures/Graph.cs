@@ -5,9 +5,9 @@ namespace TrainsProblem.DataStructures
 {
     public class Graph<T>
     {
-        public Graph(IEnumerable<Vertex<T>> initialVertices = null)
+        public Graph(IEnumerable<Vertex<T>> vertices = null)
         {
-            Vertices = initialVertices?.ToList() ?? new List<Vertex<T>>();
+            Vertices = vertices?.ToList() ?? new List<Vertex<T>>();
         }
 
         public List<Vertex<T>> Vertices { get; }
@@ -22,6 +22,11 @@ namespace TrainsProblem.DataStructures
         public bool HasVertex(T value)
         {
             return Vertices.Any(v => v.Value.Equals(value));
+        }
+
+        public void AddVertex(T value)
+        {
+            Vertices.Add(new Vertex<T>(value));
         }
 
         public override string ToString()

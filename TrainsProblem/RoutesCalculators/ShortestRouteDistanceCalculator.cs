@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using TrainsProblem.DataStructures;
 
-namespace TrainsProblem.RouteCalculators
+namespace TrainsProblem.RoutesCalculators
 {
     public class ShortestRouteDistanceCalculator<T>
     {
-        private Graph<T> graph;
+        private readonly Graph<T> graph;
 
         public ShortestRouteDistanceCalculator(Graph<T> graph)
         {
@@ -33,9 +33,7 @@ namespace TrainsProblem.RouteCalculators
                 unexploredVertices.Remove(source);
             }
             else
-            {
                 distances[srcValue] = 0;
-            }
 
             CalculateDistanceToNewVertices(unexploredVertices, distances);
 

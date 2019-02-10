@@ -1,17 +1,17 @@
 ﻿using System;
 using TrainsProblem.DataStructures;
 
-namespace TrainsProblem.RouteCalculators
+namespace TrainsProblem.RoutesCalculators
 {
-    public class RoutesMaxDistanceCalculator<T>
+    public class ExactStopsRoutesCalculator<T>
     {
         private readonly Graph<T> graph;
-        private readonly int maxDistance;
+        private readonly int exactStops;
 
-        public RoutesMaxDistanceCalculator(Graph<T> graph, int maxDistance)
+        public ExactStopsRoutesCalculator(Graph<T> graph, int exactStops)
         {
             this.graph = graph;
-            this.maxDistance = maxDistance;
+            this.exactStops = exactStops;
         }
 
         public int Execute(T srcValue, T destValue)
@@ -25,7 +25,7 @@ namespace TrainsProblem.RouteCalculators
 
             if (srcValue.Equals(destValue))
                 foreach (var edge in source.Edges)
-                    routesCount = CountRoutes(edge.Destination, destValue, routesCount, edge.Weight);
+                    routesCount = CountRoutes(edge.Destination, destValue, routesCount, 1);
             else
                 routesCount = CountRoutes(source, destValue, routesCount, 0);
 
@@ -38,14 +38,13 @@ namespace TrainsProblem.RouteCalculators
                 throw new ArgumentException();
         }
 
-        private int CountRoutes(Vertex<T> source, T destValue, int routesCount, int distanceCount)
+        private int CountRoutes(Vertex<T> source, T destValue, int routesCount, int stopsCount)
         {
-            if (source.Value.Equals(destValue))
+            if (source.Value.Equals(destValue) && stopsCount == exactStops)
                 routesCount++;
-
-            foreach (var edge in source.Edges)
-                if (distanceCount + edge.Weight < maxDistance)
-                    routesCount = CountRoutes(edge.Destination, destValue, routesCount, distanceCount + edge.Weight);
+            else if (stopsCount < exactStops)
+                foreach (var edge in source.Edges)
+                    routesCount = CountRoutes(edge.Destination, destValue, routesCount, stopsCount + 1);
 
             return routesCount;
         }

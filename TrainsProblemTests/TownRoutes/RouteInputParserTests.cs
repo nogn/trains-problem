@@ -22,13 +22,15 @@ namespace TrainsProblemTests.TownRoutes
         }
 
         [TestMethod]
+        [DataRow("AB")]
+        [DataRow("A")]
+        [DataRow("")]
+        [DataRow(null)]
         [ExpectedException(typeof(ArgumentException), InputErrorMessages.InvalidInputLength)]
-        public void ParseInputRouteToModel_InvalidInputLenght_ThrowsException()
+        public void ParseInputRouteToModel_InvalidInputLenght_ThrowsException(string routeInput)
         {
             var routeInputParser = new RouteInputParser();
-            var routeInput = "AB";
-
-            var routeModel = routeInputParser.ParseInputRouteToModel(routeInput);
+            routeInputParser.ParseInputRouteToModel(routeInput);
         }
 
         [TestMethod]
@@ -38,7 +40,7 @@ namespace TrainsProblemTests.TownRoutes
             var routeInputParser = new RouteInputParser();
             var routeInput = "ABB";
 
-            var routeModel = routeInputParser.ParseInputRouteToModel(routeInput);
+            routeInputParser.ParseInputRouteToModel(routeInput);
         }
     }
 }

@@ -1,6 +1,4 @@
-﻿using System.Linq;
-
-namespace TrainsProblem.DataStructures
+﻿namespace TrainsProblem.DataStructures
 {
     public class DirectedGraphBuilder<T> : GraphBuilder<T>
     {
@@ -14,16 +12,16 @@ namespace TrainsProblem.DataStructures
 
         private void AddIfNew(T value)
         {
-            if (!graph.Vertices.Any(v => v.Value.Equals(value)))
-                graph.Vertices.Add(new Vertex<T>(value));
+            if (!graph.HasVertex(value))
+                graph.AddVertex(value);
         }
 
-        private void AddEdgeIfNew(T sourceValue, T destinationValue, int weight)
+        private void AddEdgeIfNew(T srcValue, T destValue, int weight)
         {
-            var source = graph.GetVertex(sourceValue);
-            var destination = graph.GetVertex(destinationValue);
+            var source = graph.GetVertex(srcValue);
+            var destination = graph.GetVertex(destValue);
 
-            if (!source.Edges.Any(edge => edge.Destination.Value.Equals(destinationValue)))
+            if (!source.HasEdge(destValue))
                 source.AddEdge(new Edge<T>(destination, weight));
         }
     }
