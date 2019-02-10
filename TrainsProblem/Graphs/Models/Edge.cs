@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace TrainsProblem
+﻿namespace TrainsProblem.Graphs.Models
 {
     class Edge<T>
     {
-        public Edge(Vertex<T> destination, int weight)
+        public Edge(Vertex<T> destination, int weight = 0)
         {
             Destination = destination;
             Weight = weight;

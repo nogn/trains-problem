@@ -1,15 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
-namespace TrainsProblem
+namespace TrainsProblem.Graphs.Models
 {
     class Vertex<T>
     {
-        public Vertex(T value, params Edge<T>[] edges)
-            : this(value, (IEnumerable<Edge<T>>)edges) { }
-
         public Vertex(T value, IEnumerable<Edge<T>> edges = null)
         {
             Value = value;
@@ -20,16 +15,19 @@ namespace TrainsProblem
 
         public List<Edge<T>> Edges { get; }
 
-        public int EdgeCount => Edges.Count;
+        public bool HasEdge(T value)
+        {
+            return Edges.Any(e => e.Destination.Value.Equals(value));
+        }
+
+        public Edge<T> GetEdge(T value)
+        {
+            return Edges.Find(e => e.Destination.Value.Equals(value));
+        }
 
         public void AddEdge(Edge<T> edge)
         {
             Edges.Add(edge);
-        }
-
-        public void AddEdges(params Edge<T>[] edges)
-        {
-            Edges.AddRange(edges);
         }
 
         public void AddEdges(IEnumerable<Edge<T>> edges)
@@ -44,7 +42,7 @@ namespace TrainsProblem
 
         public override string ToString()
         {
-            return $"{Value}: {string.Join(" ", Edges.Select(n => n.ToString()))}";
+            return $"{Value}: {string.Join(" ", Edges.Select(e => e.ToString()))}";
         }
     }
 }
