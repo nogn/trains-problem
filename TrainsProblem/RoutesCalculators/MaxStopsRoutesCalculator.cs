@@ -42,7 +42,8 @@ namespace TrainsProblem.RoutesCalculators
         {
             if (source.Value.Equals(destValue))
                 routesCount++;
-            else if (stopsCount < maxStops)
+
+            if (stopsCount < maxStops)
                 foreach (var edge in source.Edges)
                     routesCount = CountRoutes(edge.Destination, destValue, routesCount, stopsCount + 1);
 
