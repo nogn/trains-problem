@@ -1,17 +1,17 @@
 ﻿using System;
-using TrainsProblem.DataStructures.Graph;
+using TrainsProblem.DataStructures;
 
 namespace TrainsProblem.RouteCalculators
 {
-    public class PossibleRoutesMaxDistanceCalculator<T>
+    public class RoutesMaxStopsCalculator<T>
     {
         private readonly Graph<T> graph;
-        private readonly int maxDistance;
+        private readonly int maxStops;
 
-        public PossibleRoutesMaxDistanceCalculator(Graph<T> graph, int maxDistance)
+        public RoutesMaxStopsCalculator(Graph<T> graph, int maxStops)
         {
             this.graph = graph;
-            this.maxDistance = maxDistance;
+            this.maxStops = maxStops;
         }
 
         public int Execute(T srcValue, T destValue)
@@ -25,7 +25,7 @@ namespace TrainsProblem.RouteCalculators
 
             if (srcValue.Equals(destValue))
                 foreach (var edge in source.Edges)
-                    routesCount = CountRoutes(edge.Destination, destValue, routesCount, edge.Weight);
+                    routesCount = CountRoutes(edge.Destination, destValue, routesCount, 1);
             else
                 routesCount = CountRoutes(source, destValue, routesCount, 0);
 
@@ -38,14 +38,13 @@ namespace TrainsProblem.RouteCalculators
                 throw new ArgumentException();
         }
 
-        private int CountRoutes(Vertex<T> source, T destValue, int routesCount, int distanceCount)
+        private int CountRoutes(Vertex<T> source, T destValue, int routesCount, int stopsCount)
         {
             if (source.Value.Equals(destValue))
                 routesCount++;
-
-            foreach (var edge in source.Edges)
-                if (distanceCount + edge.Weight < maxDistance)
-                    routesCount = CountRoutes(edge.Destination, destValue, routesCount, distanceCount + edge.Weight);
+            else if (stopsCount < maxStops)
+                foreach (var edge in source.Edges)
+                    routesCount = CountRoutes(edge.Destination, destValue, routesCount, stopsCount + 1);
 
             return routesCount;
         }

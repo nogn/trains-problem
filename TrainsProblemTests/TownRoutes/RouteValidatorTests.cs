@@ -1,12 +1,9 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
-using TrainsProblem.DataStructures.Builders;
-using TrainsProblem.DataStructures.Graph;
-using TrainsProblem.TownRoutes.Messages;
-using TrainsProblem.TownRoutes.Models;
-using TrainsProblem.TownRoutes.Validators;
+using TrainsProblem.DataStructures;
+using TrainsProblem.TownRoutes;
 
-namespace TrainsProblemTests.TownRoutes.Validators
+namespace TrainsProblemTests.TownRoutes
 {
     [TestClass]
     public class RouteValidatorTests

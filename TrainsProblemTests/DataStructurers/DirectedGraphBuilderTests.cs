@@ -1,8 +1,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using TrainsProblem.DataStructures.Builders;
-using TrainsProblem.DataStructures.Graph;
+using TrainsProblem.DataStructures;
 
-namespace TrainsProblemTests.DataStructures.Builders
+namespace TrainsProblemTests.DataStructures
 {
     [TestClass]
     public class DirectedGraphBuilderTests

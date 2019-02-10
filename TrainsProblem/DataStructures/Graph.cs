@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace TrainsProblem.DataStructures.Graph
+namespace TrainsProblem.DataStructures
 {
     public class Graph<T>
     {

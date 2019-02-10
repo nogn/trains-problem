@@ -1,11 +1,10 @@
 ﻿using System;
-using TrainsProblem.DataStructures.Builders;
-using TrainsProblem.DataStructures.Graph;
+using TrainsProblem.DataStructures;
 using TrainsProblem.RouteCalculators;
 
 namespace TrainsProblem.TestCases
 {
-    class TestCasesExecuter
+    public class TestCasesExecuter
     {
         public void RunAll(Graph<char> graph = null)
         {
@@ -60,13 +59,13 @@ namespace TrainsProblem.TestCases
 
         private void RunTestCase6(Graph<char> graph)
         {
-            var result = new PossibleRoutesWithMaxStopsCalculator<char>(graph, maxStops: 3).Execute('C', 'C');
+            var result = new RoutesMaxStopsCalculator<char>(graph, maxStops: 3).Execute('C', 'C');
             OutputResult(6, result);
         }
 
         private void RunTestCase7(Graph<char> graph)
         {
-            var result = new PossibleRoutesWithExactStopsCalculator<char>(graph, maxStops: 4).Execute('A', 'C');
+            var result = new RoutesExactStopsCalculator<char>(graph, maxStops: 4).Execute('A', 'C');
             OutputResult(7, result);
         }
 
@@ -84,7 +83,7 @@ namespace TrainsProblem.TestCases
 
         private void RunTestCase10(Graph<char> graph)
         {
-            var result = new PossibleRoutesMaxDistanceCalculator<char>(graph, maxDistance: 30).Execute('C', 'C');
+            var result = new RoutesMaxDistanceCalculator<char>(graph, maxDistance: 30).Execute('C', 'C');
             OutputResult(10, result);
         }
 

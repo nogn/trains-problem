@@ -1,4 +1,4 @@
-﻿namespace TrainsProblem.TownRoutes.Models
+﻿namespace TrainsProblem.TownRoutes
 {
     public class RouteModel
     {

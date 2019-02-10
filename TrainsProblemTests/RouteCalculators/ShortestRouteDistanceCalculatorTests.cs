@@ -1,6 +1,6 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
-using TrainsProblem.DataStructures.Graph;
+using TrainsProblem.DataStructures;
 using TrainsProblem.RouteCalculators;
 
 namespace TrainsProblemTests.RouteCalculators

@@ -1,6 +1,4 @@
-﻿using TrainsProblem.TownRoutes.Models;
-
-namespace TrainsProblem.TownRoutes.Parsers
+﻿namespace TrainsProblem.TownRoutes
 {
     public interface IRouteInputParser
     {

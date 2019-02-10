@@ -1,5 +1,4 @@
-﻿using TrainsProblem.DataStructures.Builders;
-using TrainsProblem.DataStructures.Graph;
+﻿using TrainsProblem.DataStructures;
 
 namespace TrainsProblemTests
 {

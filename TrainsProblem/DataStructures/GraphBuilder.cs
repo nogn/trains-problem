@@ -1,6 +1,4 @@
-﻿using TrainsProblem.DataStructures.Graph;
-
-namespace TrainsProblem.DataStructures.Builders
+﻿namespace TrainsProblem.DataStructures
 {
     public abstract class GraphBuilder<T>
     {

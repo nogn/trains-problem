@@ -1,14 +1,14 @@
 ﻿using System;
-using TrainsProblem.DataStructures.Graph;
+using TrainsProblem.DataStructures;
 
 namespace TrainsProblem.RouteCalculators
 {
-    public class PossibleRoutesWithMaxStopsCalculator<T>
+    public class RoutesExactStopsCalculator<T>
     {
         private readonly Graph<T> graph;
         private readonly int maxStops;
 
-        public PossibleRoutesWithMaxStopsCalculator(Graph<T> graph, int maxStops)
+        public RoutesExactStopsCalculator(Graph<T> graph, int maxStops)
         {
             this.graph = graph;
             this.maxStops = maxStops;
@@ -17,19 +17,19 @@ namespace TrainsProblem.RouteCalculators
         public int Execute(T srcValue, T destValue)
         {
             ValidateInputs(srcValue, destValue);
-            int pathCount = 0;
+            int routesCount = 0;
 
             var source = graph.GetVertex(srcValue);
             if (source == null)
-                return pathCount;
+                return routesCount;
 
             if (srcValue.Equals(destValue))
                 foreach (var edge in source.Edges)
-                    pathCount = CountPaths(edge.Destination, destValue, pathCount, 1);
+                    routesCount = CountRoutes(edge.Destination, destValue, routesCount, 1);
             else
-                pathCount = CountPaths(source, destValue, pathCount, 0);
+                routesCount = CountRoutes(source, destValue, routesCount, 0);
 
-            return pathCount;
+            return routesCount;
         }
 
         private void ValidateInputs(T srcValue, T destValue)
@@ -38,15 +38,15 @@ namespace TrainsProblem.RouteCalculators
                 throw new ArgumentException();
         }
 
-        private int CountPaths(Vertex<T> source, T destValue, int pathCount, int countStops)
+        private int CountRoutes(Vertex<T> source, T destValue, int routesCount, int stopsCount)
         {
-            if (source.Value.Equals(destValue))
-                pathCount++;
-            else if (countStops < maxStops)
+            if (source.Value.Equals(destValue) && stopsCount == maxStops)
+                routesCount++;
+            else if (stopsCount < maxStops)
                 foreach (var edge in source.Edges)
-                    pathCount = CountPaths(edge.Destination, destValue, pathCount, countStops + 1);
+                    routesCount = CountRoutes(edge.Destination, destValue, routesCount, stopsCount + 1);
 
-            return pathCount;
+            return routesCount;
         }
     }
 }

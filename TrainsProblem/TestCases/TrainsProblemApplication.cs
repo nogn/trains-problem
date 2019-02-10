@@ -1,9 +1,9 @@
 ﻿using System;
-using TrainsProblem.TownRoutes.Readers;
+using TrainsProblem.TownRoutes;
 
 namespace TrainsProblem.TestCases
 {
-    class TrainsProblemApplication
+    public class TrainsProblemApplication
     {
         private static TrainsProblemApplication trainProblemApplication;
 

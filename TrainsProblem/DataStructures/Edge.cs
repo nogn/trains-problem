@@ -1,4 +1,4 @@
-﻿namespace TrainsProblem.DataStructures.Graph
+﻿namespace TrainsProblem.DataStructures
 {
     public class Edge<T>
     {

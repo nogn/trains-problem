@@ -1,11 +1,7 @@
 ﻿using System;
-using TrainsProblem.DataStructures.Builders;
-using TrainsProblem.DataStructures.Graph;
-using TrainsProblem.TownRoutes.Models;
-using TrainsProblem.TownRoutes.Parsers;
-using TrainsProblem.TownRoutes.Validators;
+using TrainsProblem.DataStructures;
 
-namespace TrainsProblem.TownRoutes.Readers
+namespace TrainsProblem.TownRoutes
 {
     public class RoutesConsoleReader : IRoutesReader
     {

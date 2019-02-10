@@ -1,8 +1,6 @@
 ﻿using System;
-using TrainsProblem.TownRoutes.Messages;
-using TrainsProblem.TownRoutes.Models;
 
-namespace TrainsProblem.TownRoutes.Parsers
+namespace TrainsProblem.TownRoutes
 {
     public class RouteInputParser : IRouteInputParser
     {

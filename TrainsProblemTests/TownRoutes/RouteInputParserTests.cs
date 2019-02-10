@@ -1,9 +1,8 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
-using TrainsProblem.TownRoutes.Messages;
-using TrainsProblem.TownRoutes.Parsers;
+using TrainsProblem.TownRoutes;
 
-namespace TrainsProblemTests.TownRoutes.Parsers
+namespace TrainsProblemTests.TownRoutes
 {
     [TestClass]
     public class RouteInputParserTests

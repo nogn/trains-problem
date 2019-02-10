@@ -1,6 +1,6 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
-using TrainsProblem.DataStructures.Graph;
+using TrainsProblem.DataStructures;
 using TrainsProblem.RouteCalculators;
 
 namespace TrainsProblemTests.RouteCalculators
@@ -13,7 +13,7 @@ namespace TrainsProblemTests.RouteCalculators
         {
             var graph = TestUtils.BuildDefaultTestGraph();
             var maxDistance = 30;
-            var calculator = new PossibleRoutesMaxDistanceCalculator<char>(graph, maxDistance);
+            var calculator = new RoutesMaxDistanceCalculator<char>(graph, maxDistance);
 
             var source = 'A';
             var destination = 'C';
@@ -29,7 +29,7 @@ namespace TrainsProblemTests.RouteCalculators
         {
             var graph = TestUtils.BuildDefaultTestGraph();
             var maxDistance = 30;
-            var calculator = new PossibleRoutesMaxDistanceCalculator<char>(graph, maxDistance);
+            var calculator = new RoutesMaxDistanceCalculator<char>(graph, maxDistance);
 
             var source = 'C';
             var destination = 'C';
@@ -48,7 +48,7 @@ namespace TrainsProblemTests.RouteCalculators
         {
             var graph = new Graph<char>();
             var maxDistance = 30;
-            var calculator = new PossibleRoutesMaxDistanceCalculator<char>(graph, maxDistance);
+            var calculator = new RoutesMaxDistanceCalculator<char>(graph, maxDistance);
 
             var result = calculator.Execute(source, destination);
         }
@@ -58,7 +58,7 @@ namespace TrainsProblemTests.RouteCalculators
         {
             var graph = new Graph<char>();
             var maxDistance = 30;
-            var calculator = new PossibleRoutesMaxDistanceCalculator<char>(graph, maxDistance);
+            var calculator = new RoutesMaxDistanceCalculator<char>(graph, maxDistance);
 
             var source = 'C';
             var destination = 'C';

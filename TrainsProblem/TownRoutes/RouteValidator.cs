@@ -1,9 +1,7 @@
 ﻿using System;
-using TrainsProblem.DataStructures.Graph;
-using TrainsProblem.TownRoutes.Messages;
-using TrainsProblem.TownRoutes.Models;
+using TrainsProblem.DataStructures;
 
-namespace TrainsProblem.TownRoutes.Validators
+namespace TrainsProblem.TownRoutes
 {
     public class RouteValidator : IRouteValidator
     {

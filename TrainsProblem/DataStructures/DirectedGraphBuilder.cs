@@ -1,7 +1,6 @@
 ﻿using System.Linq;
-using TrainsProblem.DataStructures.Graph;
 
-namespace TrainsProblem.DataStructures.Builders
+namespace TrainsProblem.DataStructures
 {
     public class DirectedGraphBuilder<T> : GraphBuilder<T>
     {

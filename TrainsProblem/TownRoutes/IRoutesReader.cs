@@ -1,6 +1,6 @@
-﻿using TrainsProblem.DataStructures.Graph;
+﻿using TrainsProblem.DataStructures;
 
-namespace TrainsProblem.TownRoutes.Readers
+namespace TrainsProblem.TownRoutes
 {
     public interface IRoutesReader
     {
