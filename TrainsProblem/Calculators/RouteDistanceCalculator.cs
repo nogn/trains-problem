@@ -4,7 +4,7 @@ namespace TrainsProblem
 {
     class RouteDistanceCalculator
     {
-        public static int Execute(DirectedGraph<char> graph, char[] route)
+        public static int Execute(Graph<char> graph, char[] route)
         {
             var distance = 0;
 

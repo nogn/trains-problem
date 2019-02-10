@@ -39,7 +39,7 @@ namespace TrainsProblem.TestCases
 
         // Use this method if you wish to load the default town routes input graph
         // and use it to run the test cases
-        private DirectedGraph<char> BuildDefaultTestGraph()
+        private Graph<char> BuildDefaultTestGraph()
         {
             var graphBuilder = new DirectedGraphBuilder<char>();
 

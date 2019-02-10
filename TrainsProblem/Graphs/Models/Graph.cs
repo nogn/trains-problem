@@ -12,8 +12,6 @@ namespace TrainsProblem.Graphs.Models
 
         public List<Vertex<T>> Vertices { get; }
 
-        public bool IsEmpty => !Vertices.Any();
-
         public Vertex<T> GetVertex(T value)
         {
             return Vertices.Find(v => v.Value.Equals(value));

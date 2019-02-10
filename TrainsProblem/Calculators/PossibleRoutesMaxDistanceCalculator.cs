@@ -5,10 +5,10 @@ namespace TrainsProblem
 {
     class PossibleRoutesMaxDistanceCalculator<T>
     {
-        private readonly DirectedGraph<T> graph;
+        private readonly Graph<T> graph;
         private readonly int maxDistance;
 
-        public PossibleRoutesMaxDistanceCalculator(DirectedGraph<T> graph, int maxDistance)
+        public PossibleRoutesMaxDistanceCalculator(Graph<T> graph, int maxDistance)
         {
             this.graph = graph;
             this.maxDistance = maxDistance;

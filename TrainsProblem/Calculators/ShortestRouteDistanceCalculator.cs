@@ -7,9 +7,9 @@ namespace TrainsProblem
 {
     class ShortestRouteDistanceCalculator<T>
     {
-        private DirectedGraph<T> graph;
+        private Graph<T> graph;
 
-        public ShortestRouteDistanceCalculator(DirectedGraph<T> graph)
+        public ShortestRouteDistanceCalculator(Graph<T> graph)
         {
             this.graph = graph;
         }

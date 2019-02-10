@@ -5,10 +5,10 @@ namespace TrainsProblem
 {
     class PossibleRoutesWithExactStopsCalculator<T>
     {
-        private readonly DirectedGraph<T> graph;
+        private readonly Graph<T> graph;
         private readonly int maxStops;
 
-        public PossibleRoutesWithExactStopsCalculator(DirectedGraph<T> graph, int maxStops)
+        public PossibleRoutesWithExactStopsCalculator(Graph<T> graph, int maxStops)
         {
             this.graph = graph;
             this.maxStops = maxStops;

@@ -6,6 +6,5 @@ namespace TrainsProblem.Graphs.Models
     {
         List<Vertex<T>> Vertices { get; }
         Vertex<T> GetVertex(T value);
-        bool HasVertex(T value);
     }
 }

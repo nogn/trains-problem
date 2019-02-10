@@ -5,7 +5,7 @@ namespace TrainsProblem.TestCases
 {
     class TestCasesExecuter
     {
-        public void RunAll(DirectedGraph<char> graph)
+        public void RunAll(Graph<char> graph)
         {
             Console.WriteLine("Executing Questions 1 to 10:\n");
 
@@ -28,7 +28,7 @@ namespace TrainsProblem.TestCases
             }
         }
 
-        private void RunTestCases1To5(DirectedGraph<char> graph)
+        private void RunTestCases1To5(Graph<char> graph)
         {
             var routes = new char[][]
             {
@@ -53,31 +53,31 @@ namespace TrainsProblem.TestCases
             Console.WriteLine($"OUTPUT #{caseNumber}: {result}");
         }
 
-        private void RunTestCase6(DirectedGraph<char> graph)
+        private void RunTestCase6(Graph<char> graph)
         {
             var result = new PossibleRoutesWithMaxStopsCalculator<char>(graph, maxStops: 3).Execute('C', 'C');
             OutputResult(6, result);
         }
 
-        private void RunTestCase7(DirectedGraph<char> graph)
+        private void RunTestCase7(Graph<char> graph)
         {
             var result = new PossibleRoutesWithExactStopsCalculator<char>(graph, maxStops: 4).Execute('A', 'C');
             OutputResult(7, result);
         }
 
-        private void RunTestCase8(DirectedGraph<char> graph)
+        private void RunTestCase8(Graph<char> graph)
         {
             var result = new ShortestRouteDistanceCalculator<char>(graph).Execute('A', 'C');
             OutputResult(8, result);
         }
 
-        private void RunTestCase9(DirectedGraph<char> graph)
+        private void RunTestCase9(Graph<char> graph)
         {
             var result = new ShortestRouteDistanceCalculator<char>(graph).Execute('B', 'B');
             OutputResult(9, result);
         }
 
-        private void RunTestCase10(DirectedGraph<char> graph)
+        private void RunTestCase10(Graph<char> graph)
         {
             var result = new PossibleRoutesMaxDistanceCalculator<char>(graph, maxDistance: 30).Execute('C', 'C');
             OutputResult(10, result);

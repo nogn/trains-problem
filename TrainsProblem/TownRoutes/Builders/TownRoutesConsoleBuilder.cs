@@ -18,7 +18,7 @@ namespace TrainsProblem.TownRoutes.Builders
             routeValidator = new TownRouteValidator();
         }
 
-        public DirectedGraph<char> ReadAndBuildTownRoutes()
+        public Graph<char> ReadAndBuildTownRoutes()
         {
             WriteInputInstructions();
             var graphBuilder = new DirectedGraphBuilder<char>();
@@ -70,7 +70,7 @@ namespace TrainsProblem.TownRoutes.Builders
             Console.WriteLine($"Route '{routeModel}' successfully added.\n");
         }
 
-        private void WriteInputSummary(DirectedGraph<char> routesGraph)
+        private void WriteInputSummary(Graph<char> routesGraph)
         {
             Console.WriteLine("\nInput Summary:");
             Console.WriteLine($"{routesGraph}\n");

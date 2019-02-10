@@ -5,16 +5,6 @@ namespace TrainsProblem.Graphs.Builders
 {
     class DirectedGraphBuilder<T> : GraphBuilder<T>
     {
-        public DirectedGraphBuilder()
-        {
-            graph = new DirectedGraph<T>();
-        }
-
-        public DirectedGraph<T> GetGraph()
-        {
-            return graph as DirectedGraph<T>;
-        }
-
         public override void AddEdge(T source, T destination, int weight)
         {
             AddIfNew(source);

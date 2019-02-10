@@ -4,6 +4,6 @@ namespace TrainsProblem.TownRoutes.Builders
 {
     interface ITownRoutesBuilder
     {
-        DirectedGraph<char> ReadAndBuildTownRoutes();
+        Graph<char> ReadAndBuildTownRoutes();
     }
 }
