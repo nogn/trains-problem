@@ -2,15 +2,15 @@
 {
     public class DirectedGraphBuilder<T> : GraphBuilder<T>
     {
-        public override void AddEdge(T source, T destination, int weight)
+        public override void AddEdge(T srcValue, T destValue, int weight)
         {
-            AddIfNew(source);
-            AddIfNew(destination);
+            AddVertexIfNew(srcValue);
+            AddVertexIfNew(destValue);
 
-            AddEdgeIfNew(source, destination, weight);
+            AddEdgeIfNew(srcValue, destValue, weight);
         }
 
-        private void AddIfNew(T value)
+        private void AddVertexIfNew(T value)
         {
             if (!graph.HasVertex(value))
                 graph.AddVertex(value);

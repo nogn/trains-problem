@@ -15,31 +15,39 @@ namespace TrainsProblem.RoutesCalculators
         public int Execute(T[] routes)
         {
             ValidateInput(routes);
-
-            var distance = 0;
-
-            for (int i = 0; i < routes.Length - 1; i++)
-            {
-                var source = graph.GetVertex(routes[i]);
-
-                if (source == null)
-                    return -1;
-
-                var destination = source.GetEdge(routes[i + 1]);
-
-                if (destination == null)
-                    return -1;
-
-                distance += destination.Weight;
-            }
-
-            return distance;
+            return CalculateDistance(routes);
         }
 
         private void ValidateInput(T[] routes)
         {
             if (routes == null)
                 throw new ArgumentException();
+        }
+
+        private int CalculateDistance(T[] nodes)
+        {
+            var distance = 0;
+
+            for (int i = 0; i < nodes.Length - 1; i++)
+            {
+                var sourceValue = nodes[i];
+
+                if (!graph.HasVertex(sourceValue))
+                    return -1;
+
+                var source = graph.GetVertex(sourceValue);
+
+                var destinationValue = nodes[i + 1];
+
+                if (!source.HasEdge(destinationValue))
+                    return -1;
+
+                var destination = source.GetEdge(destinationValue);
+
+                distance += destination.Weight;
+            }
+
+            return distance;
         }
     }
 }
