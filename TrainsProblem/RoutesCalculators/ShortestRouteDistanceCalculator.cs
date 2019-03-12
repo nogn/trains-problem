@@ -50,7 +50,7 @@ namespace TrainsProblem.RoutesCalculators
         {
             while (unexploredVertices.Any())
             {
-                var nextVertex = ExtractVertexWithMinValue(unexploredVertices, distances);
+                var nextVertex = ExtractVertexWithMinDistance(unexploredVertices, distances);
 
                 foreach (var edge in nextVertex.Edges)
                     if (distances[nextVertex.Value] != int.MaxValue && distances[edge.Destination.Value] > distances[nextVertex.Value] + edge.Weight)
@@ -58,10 +58,10 @@ namespace TrainsProblem.RoutesCalculators
             }
         }
 
-        private Vertex<T> ExtractVertexWithMinValue(List<Vertex<T>> vertices, Dictionary<T, int> distances)
+        private Vertex<T> ExtractVertexWithMinDistance(List<Vertex<T>> unexploredVertices, Dictionary<T, int> distances)
         {
-            var minVertex = vertices.OrderBy(v => distances[v.Value]).FirstOrDefault();
-            vertices.Remove(minVertex);
+            var minVertex = unexploredVertices.OrderBy(v => distances[v.Value]).FirstOrDefault();
+            unexploredVertices.Remove(minVertex);
 
             return minVertex;
         }
