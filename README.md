@@ -61,7 +61,7 @@ The solution is structured in two projects, the first is the application itself 
   - **Vertex:** represents a node in the graph, containing a value and a list of edges.
   - **GraphBuilder:** separates the construction of a graph object from its representation.
   - **DirectedGraphBuilder:** responsible to construct a directed graph.
-- RoutesCalculators:** relates to route calculations over a graph structure.
+- **RoutesCalculators:** relates to route calculations over a graph structure.
   - **ExactStopsRoutesCalculator:** computes possible routes with a given number of stops.
   - **MaxDistanceRoutesCalculator:** computes possible routes within a max distance.
   - **MaxStopsRoutesCalculator:** computes possible routes within a max number of stops.
